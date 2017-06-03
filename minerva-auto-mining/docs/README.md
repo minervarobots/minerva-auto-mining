@@ -12,3 +12,6 @@ https://maven.apache.org/guides/getting-started/
 # Maven errors
 https://cwiki.apache.org//confluence/display/MAVEN/LifecyclePhaseNotFoundException
 
+# Reasons to use Weka
+https://inclass.kaggle.com/c/utexasdatasciencelab/forums/t/24719/using-weka-as-a-data-mining-tool
+

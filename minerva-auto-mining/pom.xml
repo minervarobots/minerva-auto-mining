@@ -21,5 +21,16 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    
+    
+    <!-- https://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/weka-stable -->
+    <!--  CM:20170603 - Minerva Auto Mining depend of Weka 3.8.0  -->
+    <dependency>
+      <groupId>nz.ac.waikato.cms.weka</groupId>
+      <artifactId>weka-stable</artifactId>
+      <version>3.8.0</version>
+    </dependency>
+    
+    
   </dependencies>
 </project>

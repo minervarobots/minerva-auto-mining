@@ -30,6 +30,16 @@
 
 
 
+// https://ianma.wordpress.com/2010/01/16/weka-with-java-eclipse-getting-started/
+
+
+// https://weka.wikispaces.com/Use+WEKA+in+your+Java+code
+
+// https://inclass.kaggle.com/c/utexasdatasciencelab/forums/t/24719/using-weka-as-a-data-mining-tool
+
+
+
+
 package org.minerva.automining;
 
 import java.io.FileOutputStream;
@@ -283,6 +293,21 @@ public class MinervaAutoMiningTitanicDemo {
         
         // Solution was here
         // http://weka.8497.n7.nabble.com/Auto-WEKA-Problem-td38858.html
+        
+        // 6. Add Example with Data base
+        // https://gist.github.com/dexetra/1226623/502c6e78fea715c105c79163af34cdccf11fb056
+        
+        // 7. Add an example with Twitter
+        // https://github.com/felipebravom
+        // https://github.com/felipebravom/AffectiveTweets
+        // http://www.cs.waikato.ac.nz/~fjb11/thesis.pdf
+        // http://www.cs.waikato.ac.nz/~fjb11/
+        
+        
+        
+        // 8. Add correlation anaylsis
+        
+        
         
        
         

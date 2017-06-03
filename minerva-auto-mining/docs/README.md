@@ -15,3 +15,7 @@ https://cwiki.apache.org//confluence/display/MAVEN/LifecyclePhaseNotFoundExcepti
 # Reasons to use Weka
 https://inclass.kaggle.com/c/utexasdatasciencelab/forums/t/24719/using-weka-as-a-data-mining-tool
 
+# Weka Commercial Use
+http://weka.wikispaces.com/Can+I+use+WEKA+in+commercial+applications%3F
+
+

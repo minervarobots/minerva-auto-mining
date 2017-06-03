@@ -1,10 +1,45 @@
+/*
+ *    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
+
+/*
+ *    
+ *    Copyright (C) 2017 Caio Moreno
+ *    
+ *    This code will be improved, it is only a POC demo code.
+ *    
+ *
+ */
+
+// https://weka.wikispaces.com/Use+Weka+in+your+Java+code
+
+// Kaggle Titanic competition with Weka
+// http://www195.pair.com/mik3hall/weka_kaggle.html
+
+
+
 package org.minerva.automining;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.Random;
 
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
+import weka.classifiers.meta.AutoWEKAClassifier;
 import weka.classifiers.trees.J48;
 import weka.core.AttributeStats;
 import weka.core.Instances;
@@ -18,6 +53,7 @@ public class MinervaAutoMiningTitanicDemo {
 
     	String trainData = "dataset/kaggle-weka-dataset/titanic/train.arff";
     	String testData = "dataset/kaggle-weka-dataset/titanic/test.arff";
+    	String WekaModelSavedFile = "dataset/kaggle-weka-dataset/titanic/j48.model";    	
     	
 //        ConverterUtils.DataSource source1 = new ConverterUtils.DataSource("dataset/weka-dataset-arff/iris.arff");  	
         ConverterUtils.DataSource source1 = new ConverterUtils.DataSource(trainData);
@@ -169,6 +205,88 @@ public class MinervaAutoMiningTitanicDemo {
             }
 
     }
+     
+        // Saving models http://weka.wikispaces.com/Saving+and+loading+models
+        
+        // Serialization
+        // https://weka.wikispaces.com/Serialization
+        
+        
+     // create J48
+        //Classifier cls = new J48();
+        
+        // train
+        //Instances inst = new Instances(new BufferedReader(new FileReader(trainData)));
+        
+//        train.setClassIndex(train.numAttributes() - 1);
+//        cls.buildClassifier(train);
+        
+        
+        
+        // serialize model
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(WekaModelSavedFile));
+        oos.writeObject(cls);
+        oos.flush();
+        oos.close();
+        
+        System.out.println("---------- Model Saved to:" + WekaModelSavedFile);        
+
+        
+        // Deserializing
+        
+     // deserialize model
+        Classifier clsFromSavedModel = (Classifier) weka.core.SerializationHelper.read(WekaModelSavedFile);
+        
+        System.out.println("---------- Model Deserializing with success");  
+        
+        
+        // ToDo 
+        // 1. Running a knowledgeflow from Java
+        // http://weka.sourceforge.net/doc.stable/weka/gui/beans/FlowRunner.html
+        // https://github.com/bnjmn/weka/blob/master/weka/src/main/java/weka/gui/beans/FlowRunner.java
+        // http://forums.pentaho.com/archive/index.php/t-76743.html
+        
+        // 2. Improve Generating cross-validation folds (Java approach)
+        // https://weka.wikispaces.com/Generating+cross-validation+folds+%28Java+approach%29
+        
+        // 3. Variable importance in random forest
+        // http://weka.8497.n7.nabble.com/Variable-importance-in-random-forest-td38317.html
+        // http://weka.8497.n7.nabble.com/Find-importance-of-Variables-td13536.html
+        // https://stats.stackexchange.com/questions/167828/weka-visualize-combined-trees-of-random-forest-classifier
+        
+        
+        
+        // 4. PCA
+        // 
+        
+        // 5. Running Auto-Weka from Java
+        // https://automl.github.io/autoweka/weka/classifiers/meta/AutoWEKAClassifier.html
+        // https://github.com/automl/autoweka/issues/31
+        // Lars Kotthoff
+        // https://www.linkedin.com/in/lars-kotthoff-8641856/?ppe=1
+        // http://weka.8497.n7.nabble.com/Executing-Auto-WEKA-2-0-through-java-code-td37518.html
+        
+        // https://github.com/automl/autoweka
+        
+        AutoWEKAClassifier autoweka = new AutoWEKAClassifier();
+        autoweka.setTimeLimit(60);//in minutes
+        autoweka.setMemLimit(1024);//in MB
+        autoweka.setDebug(true);
+        autoweka.setSeed(123);
+        autoweka.buildClassifier(data);
+        
+        // Error: Could not auto-detect the location of your Auto-WEKA install - have you moved the classes away from the 'params' diectory? 
+        // http://weka.8497.n7.nabble.com/Auto-WEKA-Problem-td38858.html
+        
+        // It was fixed copying Auto-WEKA from ./wekafiles and putting into the project folder.
+        // I added to class path the autoweka.jar 
+        
+        // Solution was here
+        // http://weka.8497.n7.nabble.com/Auto-WEKA-Problem-td38858.html
+        
+       
+        
+        
         
         
     }

@@ -46,11 +46,13 @@ import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.util.Random;
 
+//import autoweka.ClassifierResult.Metric;
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.classifiers.meta.AutoWEKAClassifier;
-import weka.classifiers.trees.J48;
+//import weka.classifiers.meta.AutoWEKAClassifier.Metric;
+//import weka.classifiers.trees.J48;
 import weka.core.AttributeStats;
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils;
@@ -63,7 +65,8 @@ public class MinervaAutoMiningTitanicDemoAutoWeka {
 
     	String trainData = "dataset/kaggle-weka-dataset/titanic/train.arff";
     	String testData = "dataset/kaggle-weka-dataset/titanic/test.arff";
-    	String WekaModelSavedFile = "dataset/kaggle-weka-dataset/titanic/j48.model";    	
+    	String WekaModelSavedFile = "savedmodels/j48.model";    	
+    	String AutoWekaModelSavedFile = "savedmodels/autoweka.model";    	
     	
 //        ConverterUtils.DataSource source1 = new ConverterUtils.DataSource("dataset/weka-dataset-arff/iris.arff");  	
         ConverterUtils.DataSource source1 = new ConverterUtils.DataSource(trainData);
@@ -135,7 +138,7 @@ public class MinervaAutoMiningTitanicDemoAutoWeka {
         
 
         // this does the trick  
-        double label = naiveBayes.classifyInstance(test.instance(0));
+//        double label = naiveBayes.classifyInstance(test.instance(0));
         
        
         // Manual Test
@@ -267,7 +270,10 @@ public class MinervaAutoMiningTitanicDemoAutoWeka {
         
         
         // 4. PCA
-        // 
+        // I have this code already 
+        
+        
+        
         
         // 5. Running Auto-Weka from Java
         // https://automl.github.io/autoweka/weka/classifiers/meta/AutoWEKAClassifier.html
@@ -279,11 +285,50 @@ public class MinervaAutoMiningTitanicDemoAutoWeka {
         // https://github.com/automl/autoweka
         
         AutoWEKAClassifier autoweka = new AutoWEKAClassifier();
-        autoweka.setTimeLimit(60);//in minutes
+//        autoweka.setTimeLimit(2);//in minutes
+
+        autoweka.setTimeLimit(5);//in minutes
+        //autoweka.setTimeLimit(15);// 15 in minutes
+
+        autoweka.setnBestConfigs(1);
+        autoweka.setParallelRuns(1);
+//        autoweka.setBatchSize(100);
+        
+        //autoweka.setMetric(errorRate);;
+        autoweka.setBatchSize("100");
+//		autoweka.setMetric(metric errorRate);
+        
+//errorRate
+// areaUnderROC
+        
+        //autoweka.setMetric(Metric.class.toString("errorRate"));;
+      
+        
+        
         autoweka.setMemLimit(1024);//in MB
         autoweka.setDebug(true);
         autoweka.setSeed(123);
         autoweka.buildClassifier(data);
+        
+        // Print AutoWeka Model
+        System.out.println(autoweka);
+        
+        System.out.println("Total Tried: " + autoweka.totalTried);
+
+        // serialize model (Save Model to File)
+        ObjectOutputStream oosAutoWekaModel = new ObjectOutputStream(new FileOutputStream(AutoWekaModelSavedFile));
+        oosAutoWekaModel.writeObject(autoweka);
+        oosAutoWekaModel.flush();
+        oosAutoWekaModel.close();
+        
+        System.out.println("---------- Model Saved to:" + AutoWekaModelSavedFile);        
+        
+        
+        
+        // failed: Base learner must implement Randomizable!
+        // https://github.com/automl/autoweka/issues/44
+        // That warning is harmless. Auto-WEKA doesn't encode these requirements and you may occasionally see such warnings.
+        
         
         // Error: Could not auto-detect the location of your Auto-WEKA install - have you moved the classes away from the 'params' diectory? 
         // http://weka.8497.n7.nabble.com/Auto-WEKA-Problem-td38858.html

@@ -1,0 +1,177 @@
+{
+	"flow_name" : "kf-example5",
+	"steps" : [
+		{
+			"class" : "weka.knowledgeflow.steps.Loader",
+			"properties" : {
+				"loader" : {
+					"type" : "loader",
+					"class" : "weka.core.converters.ArffLoader",
+					"filePath" : "/Applications/Pentaho/Weka/weka-3-8-1/data/iris.arff",
+					"useRelativePath" : false
+				},
+				"name" : "ArffLoader"
+			},
+			"connections" : {
+				"dataSet" : [
+					"ClassAssigner"
+				]
+			},
+			"coordinates" : "15,49"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.Note",
+			"properties" : {
+				"name" : "Note",
+				"noteText" : "This sample will demonstrate how to read iris dataset and present the variables using the step Attribute Summarizer"
+			},
+			"connections" : {
+			},
+			"coordinates" : "13,5"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.Classifier",
+			"properties" : {
+				"classifier" : {
+					"type" : "optionHandler",
+					"class" : "weka.classifiers.bayes.NaiveBayes",
+					"options" : "-output-debug-info"
+				},
+				"loadClassifierFileName" : "",
+				"name" : "NaiveBayes",
+				"resetIncrementalClassifier" : false,
+				"updateIncrementalClassifier" : true
+			},
+			"connections" : {
+				"batchClassifier" : [
+					"SerializedModelSaver_NaiveBayes"
+				]
+			},
+			"coordinates" : "667,26"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.TrainTestSplitMaker",
+			"properties" : {
+				"name" : "TrainTestSplitMaker",
+				"preserveOrder" : false,
+				"seed" : "1234",
+				"trainPercent" : "70"
+			},
+			"connections" : {
+				"trainingSet" : [
+					"NaiveBayes",
+					"AutoWEKAClassifier"
+				]
+			},
+			"coordinates" : "439,44"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.ClassAssigner",
+			"properties" : {
+				"classColumn" : "class",
+				"name" : "ClassAssigner"
+			},
+			"connections" : {
+				"dataSet" : [
+					"TrainTestSplitMaker",
+					"CrossValidationFoldMaker"
+				]
+			},
+			"coordinates" : "231,46"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.CrossValidationFoldMaker",
+			"properties" : {
+				"name" : "CrossValidationFoldMaker",
+				"numFolds" : "10",
+				"preserveOrder" : false,
+				"seed" : "1234"
+			},
+			"connections" : {
+				"trainingSet" : [
+					"J48"
+				]
+			},
+			"coordinates" : "386,295"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.Classifier",
+			"properties" : {
+				"classifier" : {
+					"type" : "optionHandler",
+					"class" : "weka.classifiers.trees.J48",
+					"options" : "-C 0.25 -M 2"
+				},
+				"loadClassifierFileName" : "",
+				"name" : "J48",
+				"resetIncrementalClassifier" : false,
+				"updateIncrementalClassifier" : true
+			},
+			"connections" : {
+				"batchClassifier" : [
+					"SerializedModelSaver_J48"
+				]
+			},
+			"coordinates" : "620,302"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.SerializedModelSaver",
+			"properties" : {
+				"filenamePrefix" : "weka_${weka.version}_java_${java.version}",
+				"includeRelationNameInFilename" : false,
+				"incrementalSaveSchedule" : 0,
+				"name" : "SerializedModelSaver_NaiveBayes",
+				"outputDirectory" : "${Internal.knowledgeflow.directory}"
+			},
+			"connections" : {
+			},
+			"coordinates" : "852,47"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.SerializedModelSaver",
+			"properties" : {
+				"filenamePrefix" : "weka_${weka.version}_java_${java.version}",
+				"includeRelationNameInFilename" : false,
+				"incrementalSaveSchedule" : 0,
+				"name" : "SerializedModelSaver_J48",
+				"outputDirectory" : "${Internal.knowledgeflow.directory}"
+			},
+			"connections" : {
+			},
+			"coordinates" : "871,291"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.Classifier",
+			"properties" : {
+				"classifier" : {
+					"type" : "optionHandler",
+					"class" : "weka.classifiers.meta.AutoWEKAClassifier",
+					"options" : "-seed 123 -timeLimit 2 -memLimit 1024 -nBestConfigs 1 -metric errorRate -parallelRuns 1"
+				},
+				"loadClassifierFileName" : "",
+				"name" : "AutoWEKAClassifier",
+				"resetIncrementalClassifier" : false,
+				"updateIncrementalClassifier" : true
+			},
+			"connections" : {
+				"batchClassifier" : [
+					"SerializedModelSaver_AutoWeka"
+				]
+			},
+			"coordinates" : "652,151"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.SerializedModelSaver",
+			"properties" : {
+				"filenamePrefix" : "weka_${weka.version}_java_${java.version}",
+				"includeRelationNameInFilename" : false,
+				"incrementalSaveSchedule" : 0,
+				"name" : "SerializedModelSaver_AutoWeka",
+				"outputDirectory" : "${Internal.knowledgeflow.directory}"
+			},
+			"connections" : {
+			},
+			"coordinates" : "852,165"
+		}
+	]
+}

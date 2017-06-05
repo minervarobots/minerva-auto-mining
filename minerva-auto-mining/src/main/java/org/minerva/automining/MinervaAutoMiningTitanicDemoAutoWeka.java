@@ -57,7 +57,7 @@ import weka.core.converters.ConverterUtils;
 import weka.core.converters.ConverterUtils.DataSource;
 import weka.experiment.Stats;
 
-public class MinervaAutoMiningTitanicDemo {
+public class MinervaAutoMiningTitanicDemoAutoWeka {
 
     public static void main(String[] args) throws Exception {
 
@@ -278,19 +278,12 @@ public class MinervaAutoMiningTitanicDemo {
         
         // https://github.com/automl/autoweka
         
-        /* Auto Weka 
-         * 
-         * This is "Working"... need more test 
-         * 
-         * 
         AutoWEKAClassifier autoweka = new AutoWEKAClassifier();
         autoweka.setTimeLimit(60);//in minutes
         autoweka.setMemLimit(1024);//in MB
         autoweka.setDebug(true);
         autoweka.setSeed(123);
         autoweka.buildClassifier(data);
-        
-        */
         
         // Error: Could not auto-detect the location of your Auto-WEKA install - have you moved the classes away from the 'params' diectory? 
         // http://weka.8497.n7.nabble.com/Auto-WEKA-Problem-td38858.html

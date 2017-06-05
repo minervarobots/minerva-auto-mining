@@ -1,0 +1,47 @@
+05-Jun-2017 14:49:06.472 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.5.15
+05-Jun-2017 14:49:06.475 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          May 5 2017 11:03:04 UTC
+05-Jun-2017 14:49:06.475 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.5.15.0
+05-Jun-2017 14:49:06.475 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+05-Jun-2017 14:49:06.475 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.12.6
+05-Jun-2017 14:49:06.475 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+05-Jun-2017 14:49:06.475 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home/jre
+05-Jun-2017 14:49:06.475 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.7.0_67-b01
+05-Jun-2017 14:49:06.475 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+05-Jun-2017 14:49:06.475 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/caiomsouza/git/github.com/minerva-auto-mining/tomcat
+05-Jun-2017 14:49:06.475 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/caiomsouza/git/github.com/minerva-auto-mining/tomcat
+05-Jun-2017 14:49:06.476 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/caiomsouza/git/github.com/minerva-auto-mining/tomcat/conf/logging.properties
+05-Jun-2017 14:49:06.476 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+05-Jun-2017 14:49:06.476 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+05-Jun-2017 14:49:06.477 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+05-Jun-2017 14:49:06.477 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/caiomsouza/git/github.com/minerva-auto-mining/tomcat
+05-Jun-2017 14:49:06.477 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/caiomsouza/git/github.com/minerva-auto-mining/tomcat
+05-Jun-2017 14:49:06.477 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/caiomsouza/git/github.com/minerva-auto-mining/tomcat/temp
+05-Jun-2017 14:49:06.477 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/caiomsouza/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+05-Jun-2017 14:49:06.671 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+05-Jun-2017 14:49:06.700 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+05-Jun-2017 14:49:06.703 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+05-Jun-2017 14:49:06.704 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+05-Jun-2017 14:49:06.705 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 757 ms
+05-Jun-2017 14:49:06.731 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+05-Jun-2017 14:49:06.731 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.15
+05-Jun-2017 14:49:06.740 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/caiomsouza/git/github.com/minerva-auto-mining/tomcat/webapps/docs]
+05-Jun-2017 14:49:07.128 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/caiomsouza/git/github.com/minerva-auto-mining/tomcat/webapps/docs] has finished in [388] ms
+05-Jun-2017 14:49:07.129 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/caiomsouza/git/github.com/minerva-auto-mining/tomcat/webapps/examples]
+05-Jun-2017 14:49:07.556 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/caiomsouza/git/github.com/minerva-auto-mining/tomcat/webapps/examples] has finished in [427] ms
+05-Jun-2017 14:49:07.556 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/caiomsouza/git/github.com/minerva-auto-mining/tomcat/webapps/host-manager]
+05-Jun-2017 14:49:07.584 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/caiomsouza/git/github.com/minerva-auto-mining/tomcat/webapps/host-manager] has finished in [28] ms
+05-Jun-2017 14:49:07.584 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/caiomsouza/git/github.com/minerva-auto-mining/tomcat/webapps/manager]
+05-Jun-2017 14:49:07.611 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/caiomsouza/git/github.com/minerva-auto-mining/tomcat/webapps/manager] has finished in [27] ms
+05-Jun-2017 14:49:07.611 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/caiomsouza/git/github.com/minerva-auto-mining/tomcat/webapps/ROOT]
+05-Jun-2017 14:49:07.626 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/caiomsouza/git/github.com/minerva-auto-mining/tomcat/webapps/ROOT] has finished in [15] ms
+05-Jun-2017 14:49:07.628 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+05-Jun-2017 14:49:07.635 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+05-Jun-2017 14:49:07.636 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 931 ms
+05-Jun-2017 22:25:53.205 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+05-Jun-2017 22:25:53.207 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+05-Jun-2017 22:25:55.212 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+05-Jun-2017 22:25:57.215 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+05-Jun-2017 22:25:57.244 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+05-Jun-2017 22:25:57.246 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+05-Jun-2017 22:25:59.251 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+05-Jun-2017 22:25:59.252 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]

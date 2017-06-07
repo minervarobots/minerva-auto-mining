@@ -1,0 +1,1 @@
+(function(e){webswingRequirejs.require.config({baseUrl:"javascript",map:{"*":{jquery:"jquery-private"},"jquery-private":{jquery:"jquery"}}}),webswingRequirejs.require(["webswing"],function(){},function(e){var t=e.requireModules&&e.requireModules[0];throw console.error(e),Error("Error while starting webswing in module '"+t+"'. Reason: "+e)})})(this);

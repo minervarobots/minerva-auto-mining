@@ -1,0 +1,1 @@
+(function(e){e([],function(){function t(e){function n(){e.getUsers().then(function(e){t.users=e.users})}function r(){n()}function i(){e.setUsers({users:t.users})}var t=this;t.users="",t.reset=r,t.apply=i,n()}return t.$inject=["usersRestService"],t})})(adminConsole.define);

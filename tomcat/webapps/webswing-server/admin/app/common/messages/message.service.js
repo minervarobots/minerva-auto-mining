@@ -1,0 +1,1 @@
+(function(e){e([],function(){function t(e){function t(e){s(e,"success")}function n(e){s(e,"info")}function r(e){s(e,"warning")}function i(e){s(e,"danger")}function s(t,n){e.$broadcast("wsMessageEvent",t,n)}return{success:t,info:n,warn:r,error:i}}return t.$inject=["$rootScope"],t})})(adminConsole.define);

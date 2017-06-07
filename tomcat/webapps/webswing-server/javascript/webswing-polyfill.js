@@ -1,0 +1,1 @@
+webswingRequirejs.define(["es6promise","typedarray"],function(t){return function(){function r(){return typeof Promise!="undefined"&&Promise.toString().indexOf("[native code]")!==-1?!0:!1}function i(){return"ArrayBuffer"in window&&ArrayBuffer.toString().indexOf("[native code]")!==-1?!0:!1}var n=!1;return i()&&(n=!0),r()||t.polyfill(),n}});

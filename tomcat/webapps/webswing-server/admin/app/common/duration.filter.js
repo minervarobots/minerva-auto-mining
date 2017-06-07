@@ -1,0 +1,1 @@
+(function(e){e([],function(){function t(){return function(e){var t=e/1e3,n=t%60,r=(t-n)/60%60;return r+" min "+Math.round(n)+" sec"}}return t})})(adminConsole.define);

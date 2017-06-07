@@ -1,0 +1,16 @@
+{
+	"flow_name" : "kf-correlation-in-r",
+	"steps" : [
+		{
+			"class" : "weka.knowledgeflow.steps.RScriptExecutor",
+			"properties" : {
+				"RScript" : "#ftp://cran.r-project.org/pub/R/web/packages/corrplot/vignettes/corrplot-intro.html\nlibrary(corrplot)\nM <- cor(mtcars)\nsetwd(\"~/git/github.com/minerva-auto-mining/output\")\nout <- capture.output(M)\ncat(\"\", out, file=\"output_r_result.txt\", sep=\"n\", append=TRUE)",
+				"name" : "RScriptExecutor",
+				"scriptFile" : ""
+			},
+			"connections" : {
+			},
+			"coordinates" : "254,112"
+		}
+	]
+}

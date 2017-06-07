@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.2
+Created-By: Apache Maven
+Archiver-Version: Plexus Archiver
+Built-By: viktor
+Build-Jdk: 1.8.0_65
+Main-Class: main.Main
+branch: 
+buildTime: 
+commitId: 
+commitTime: 
+describe: 
+remoteOriginUrl: 
+version: 2.4
+

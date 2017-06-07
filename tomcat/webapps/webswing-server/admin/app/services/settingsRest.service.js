@@ -1,0 +1,1 @@
+(function(e){e([],function(){function t(e,t,n,r){function i(){function r(e){return e.data}function i(e){return n.handleRestError("load server settings",e,!0)}return t.get(e+"/rest/admin/settings").then(r,i)}return{getSettings:i}}return t.$inject=["baseUrl","$http","errorHandler","messageService"],t})})(adminConsole.define);
